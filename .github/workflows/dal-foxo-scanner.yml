@@ -24,7 +24,7 @@ jobs:
         dalfox --help
         echo "Hello , Testing -> $target_url "
         dalfox url "$target_url" -H 'X-HackerOne-Research: ss82' --waf-evasion --delay 400 \
-        --rate 1 --skip-bav --fast-scan -F 
+        --skip-bav --fast-scan -F -w 6 
  
 
 
