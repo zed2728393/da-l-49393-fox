@@ -1,0 +1,40 @@
+name: xss-dal-fox-2938
+on: 
+  workflow_dispatch:
+    inputs:
+      target-URL:
+        description: "Enter Target URL to Scan"
+        required: true
+        type: string
+        
+
+
+jobs:
+
+  scan:
+    name: dalfox-scan
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v5.0.0
+      
+    - name: Scan the Target
+      run: |
+        sudo snap install dalfox
+        dalfox -H "X-HackerOne-Research: ss82" --waf-evasion --delay 400 \
+        --rate 1 --skip-bav --fast-scan -F \ 
+        url ${{inputs.target-URL}} 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
