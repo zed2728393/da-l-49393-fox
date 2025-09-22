@@ -22,7 +22,7 @@ jobs:
     - name: Scan the Target
       run: |
         sudo snap install dalfox
-        dalfox -H "X-HackerOne-Research: ss82" --waf-evasion --delay 400 \
+        dalfox -H 'X-HackerOne-Research: ss82' --waf-evasion --delay 400 \
         --rate 1 --skip-bav --fast-scan -F \ 
         url ${{inputs.target-URL}} 
  
