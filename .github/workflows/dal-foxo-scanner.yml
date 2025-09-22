@@ -21,7 +21,6 @@ jobs:
       run: |
         target_url="${{ inputs.target-URL }}"
         sudo snap install dalfox
-        dalfox --version
         dalfox --help
         echo "Hello , Testing -> $target_url "
         dalfox -H 'X-HackerOne-Research: ss82' --waf-evasion --delay 400 \
