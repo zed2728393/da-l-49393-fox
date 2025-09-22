@@ -5,10 +5,8 @@ on:
       target-URL:
         description: "Enter Target URL to Scan"
         required: true
-        type: string
         
-
-
+        
 jobs:
 
   scan:
@@ -21,10 +19,14 @@ jobs:
       
     - name: Scan the Target
       run: |
+        target_url="${{ inputs.target-URL }}"
         sudo snap install dalfox
+        dalfox --version
+        dalfox --help
+        echo "Hello , Testing -> $target_url "
         dalfox -H 'X-HackerOne-Research: ss82' --waf-evasion --delay 400 \
-        --rate 1 --skip-bav --fast-scan -F \ 
-        url ${{inputs.target-URL}} 
+        --rate 1 --skip-bav --fast-scan -F \
+        url "$target_url"
  
 
 
